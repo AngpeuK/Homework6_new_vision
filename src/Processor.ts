@@ -6,17 +6,15 @@ export class Processor {
         user.consentGiven = true
     }
 
-
     verifyConsent(user: User): boolean {
         return user.consentGiven === true
     }
 
-    checkAge(user: User): boolean {
-        // return user.age >= 18;
+    giveConsentIfAgeIsOk(user: User): boolean {
         if (user.age >= 18) {
-            return true
+            return user.consentGiven = true
         } else {
-            return false
+            return user.consentGiven = false
         }
     }
 

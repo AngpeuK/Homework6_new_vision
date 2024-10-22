@@ -11,20 +11,24 @@ beforeEach((): void => {
 
 test('check if new user is undefined', (): void => {
     expect(user.consentGiven).toBeUndefined()
+    console.log(user.consentGiven)
 })
 
 test('check if processor gives consent to the user', (): void => {
     processor.giveConsent(user)
     expect(user.consentGiven).toBe(true)
+    console.log(user.consentGiven)
 })
 
 test('verify if user has given his consent', (): void => {
     processor.giveConsent(user)
     expect(processor.verifyConsent(user)).toBeTruthy()
+    console.log(user.consentGiven)
 })
 
 test('check that consent is not approved  when user has not given consent', (): void => {
     expect(processor.verifyConsent(user)).toBeFalsy()
+    console.log(user.consentGiven)
 })
 
 // new tests homework 6
@@ -37,7 +41,8 @@ describe('when users aged under 18', () => {
     })
 
     test('user under 18 is not able to give consent', (): void => {
-        expect(processor.checkAge(user)).toBe(false)
+        expect(processor.giveConsentIfAgeIsOk(user)).toBe(false)
+        console.log(user.consentGiven)
     })
 })
 
@@ -48,12 +53,14 @@ describe('when users aged 18 or over', () => {
     })
 
     test('when aged 18 or over, user is able to give consent', (): void => {
-        expect(processor.checkAge(user)).toBe(true)
+        expect(processor.giveConsentIfAgeIsOk(user)).toBe(true)
+        console.log(user.consentGiven)
     })
 
     test('revoke consent method works correctly', (): void => {
         processor.giveConsent(user)
         processor.revokeConsent(user)
         expect(user.consentGiven).toBe(false)
+        console.log(user.consentGiven)
     })
 })

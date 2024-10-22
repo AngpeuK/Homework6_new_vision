@@ -1,5 +1,5 @@
 export class User {
-    namn: string
+    name: string
     surname: string
     phone: string
     address: string
@@ -7,8 +7,8 @@ export class User {
     consentGiven: undefined | boolean
 
 
-    constructor(namn: string, surname: string, phone: string, address: string, age: number) {
-        this.namn = namn
+    constructor(name: string, surname: string, phone: string, address: string, age: number) {
+        this.name = name
         this.surname = surname
         this.phone = phone
         this.address = address
