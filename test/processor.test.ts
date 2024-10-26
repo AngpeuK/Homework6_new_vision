@@ -41,9 +41,15 @@ describe('when users aged under 18', () => {
     })
 
     test('user under 18 is not able to give consent', (): void => {
-        expect(processor.giveConsentIfAgeIsOk(user)).toBe(false)
+        expect(processor.isConsentIGiven(user)).toBe(false)
         console.log(user.consentGiven)
     })
+
+    test('Second method - user under 18 is not able to give consent', (): void => {
+        expect(processor.consentGiven(user)).toBe(false)
+        console.log(user.consentGiven)
+    })
+
 })
 
 describe('when users aged 18 or over', () => {
@@ -53,7 +59,7 @@ describe('when users aged 18 or over', () => {
     })
 
     test('when aged 18 or over, user is able to give consent', (): void => {
-        expect(processor.giveConsentIfAgeIsOk(user)).toBe(true)
+        expect(processor.isConsentIGiven(user)).toBe(true)
         console.log(user.consentGiven)
     })
 

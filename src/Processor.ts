@@ -10,14 +10,13 @@ export class Processor {
         return user.consentGiven === true
     }
 
-    giveConsentIfAgeIsOk(user: User): boolean {
-        if (user.age >= 18) {
-            return user.consentGiven = true
-        } else {
-            return user.consentGiven = false
-        }
+    isConsentIGiven(user: User): boolean {
+        return user.age >= 18;
     }
 
+    consentGiven(user: User): boolean{
+        return user.consentGiven = this.isConsentIGiven(user)
+    }
     revokeConsent(user: User): void {
         user.consentGiven = false // Отозвать согласие
     }
